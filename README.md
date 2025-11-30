@@ -24,11 +24,13 @@ This is the personal website of Alex Zawadzki, featuring:
 ## ✨ Features
 
 - **Responsive Design** - Mobile-first approach with breakpoints for tablets and desktop
-- **Fixed Navigation** - Smooth scrolling navigation with mobile hamburger menu
-- **Interactive Animations** - Fade-in effects and hover transitions
-- **Social Integration** - Direct links to GitHub and LinkedIn profiles
-- **Professional Certifications** - Dedicated section showcasing industry credentials
-- **Contact Section** - Easy ways to get in touch via email or LinkedIn
+- **Fixed Navigation** - Gradient navigation bar with smooth scrolling and mobile hamburger menu
+- **Interactive Animations** - Advanced fade-in effects, 3D transforms, and hover transitions
+- **Social Integration** - Animated social media buttons with gradient backgrounds
+- **Professional Certifications** - Interactive certification cards with gradient borders
+- **Gradient Buttons** - Eye-catching call-to-action buttons with gradient backgrounds
+- **Enhanced Typography** - Gradient text headings for visual impact
+- **Contact Section** - Centered email button with gradient styling
 
 ## 📱 Responsive Breakpoints
 
@@ -38,11 +40,15 @@ This is the personal website of Alex Zawadzki, featuring:
 
 ## 🎨 Design Features
 
-- Clean, modern aesthetic with professional blue color scheme
-- CSS custom properties for consistent theming
-- Smooth scroll behavior
-- Card-based layouts with hover effects
-- Optimized for readability and user experience
+- **Vibrant Color Scheme** - Modern gradient design with indigo, purple, and cyan accents
+- **Gradient Backgrounds** - Eye-catching gradient buttons and section headings
+- **Animated Cards** - Interactive certification and service cards with gradient borders on hover
+- **CSS Custom Properties** - Consistent theming throughout with CSS variables
+- **Smooth Animations** - Fade-in effects, hover transitions, and scroll indicators
+- **Enhanced Navigation** - Gradient navigation bar on scroll with glowing hover effects
+- **Accessible Contrast** - High contrast buttons and text for optimal readability
+- **Modern Glassmorphism** - Subtle background effects and card styling
+- **3D Transform Effects** - Cards lift and scale on hover for depth perception
 
 ## 📋 Sections
 

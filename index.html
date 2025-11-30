@@ -13,13 +13,18 @@
         }
 
         :root {
-            --primary-color: #2563eb;
-            --secondary-color: #1e40af;
-            --accent-color: #3b82f6;
-            --text-light: #f8fafc;
-            --text-dark: #1e293b;
-            --overlay-dark: rgba(0, 0, 0, 0.75);
-            --overlay-light: rgba(0, 0, 0, 0.5);
+            --primary-color: #6366f1;
+            --secondary-color: #8b5cf6;
+            --accent-color: #06b6d4;
+            --gradient-start: #4f46e5;
+            --gradient-end: #06b6d4;
+            --text-light: #ffffff;
+            --text-dark: #0f172a;
+            --bg-light: #f8fafc;
+            --bg-card: #ffffff;
+            --overlay-dark: rgba(15, 23, 42, 0.85);
+            --overlay-light: rgba(15, 23, 42, 0.6);
+            --section-alt: #f1f5f9;
         }
 
         html {
@@ -42,11 +47,12 @@
             backdrop-filter: blur(10px);
             z-index: 1000;
             transition: all 0.3s ease;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3);
         }
 
         nav.scrolled {
-            background: rgba(0, 0, 0, 0.95);
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.5);
         }
 
         nav .container {
@@ -80,6 +86,7 @@
 
         nav ul li a:hover {
             color: var(--accent-color);
+            text-shadow: 0 0 10px rgba(6, 182, 212, 0.5);
         }
 
         /* Mobile Menu */
@@ -156,13 +163,21 @@
         .social-links a {
             color: var(--text-light);
             font-size: 2rem;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
             text-decoration: none;
+            padding: 0.5rem;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .social-links a:hover {
-            color: var(--accent-color);
-            transform: translateY(-5px);
+            color: var(--text-light);
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            transform: translateY(-8px) rotate(5deg);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.6);
         }
 
         .cta-buttons {
@@ -184,28 +199,31 @@
         }
 
         .btn-primary {
-            background: var(--primary-color);
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: var(--text-light);
-            border: 2px solid var(--primary-color);
+            border: 2px solid transparent;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
         }
 
         .btn-primary:hover {
-            background: var(--secondary-color);
-            border-color: var(--secondary-color);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.4);
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.6);
         }
 
         .btn-secondary {
             background: transparent;
             color: var(--text-light);
-            border: 2px solid var(--text-light);
+            border: 2px solid var(--accent-color);
+            box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
         }
 
         .btn-secondary:hover {
-            background: var(--text-light);
+            background: var(--accent-color);
             color: var(--text-dark);
-            transform: translateY(-2px);
+            border-color: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(6, 182, 212, 0.6);
         }
 
         /* Sections */
@@ -216,12 +234,12 @@
         }
 
         section:nth-child(even) {
-            background: #f1f5f9;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
             color: var(--text-dark);
         }
 
         section:nth-child(odd) {
-            background: #ffffff;
+            background: var(--bg-card);
             color: var(--text-dark);
         }
 
@@ -229,7 +247,11 @@
             font-size: 2.5rem;
             margin-bottom: 2rem;
             text-align: center;
-            color: var(--secondary-color);
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: bold;
         }
 
         /* About Section */
@@ -249,33 +271,69 @@
         }
 
         .cert-card {
-            background: white;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.05), rgba(6, 182, 212, 0.05));
             padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
+            border-radius: 15px;
+            border: 2px solid transparent;
+            background-clip: padding-box;
+            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.15);
+            transition: all 0.4s ease;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cert-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 15px;
+            padding: 2px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .cert-card:hover::before {
+            opacity: 1;
         }
 
         .cert-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(99, 102, 241, 0.3);
         }
 
         .cert-icon {
-            font-size: 3rem;
+            font-size: 3.5rem;
             margin-bottom: 1rem;
-            color: var(--primary-color);
+            filter: grayscale(0);
+            transition: all 0.3s ease;
+        }
+
+        .cert-card:hover .cert-icon {
+            transform: scale(1.1);
+            filter: drop-shadow(0 5px 15px rgba(99, 102, 241, 0.4));
         }
 
         .cert-card h3 {
             font-size: 1.5rem;
             margin-bottom: 0.5rem;
-            color: var(--secondary-color);
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: bold;
         }
 
         .cert-card p {
-            color: #64748b;
+            color: #475569;
+            line-height: 1.6;
         }
 
         /* Services Section */
@@ -289,20 +347,51 @@
         .service-card {
             background: white;
             padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
+            border-radius: 15px;
+            border-left: 4px solid var(--accent-color);
+            box-shadow: 0 4px 20px rgba(6, 182, 212, 0.15);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--primary-color), var(--accent-color));
+            transition: width 0.4s ease;
+        }
+
+        .service-card:hover::before {
+            width: 100%;
+            opacity: 0.05;
         }
 
         .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(6, 182, 212, 0.25);
+            border-left-color: var(--primary-color);
         }
 
         .service-card h3 {
             font-size: 1.5rem;
             margin-bottom: 1rem;
-            color: var(--secondary-color);
+            background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: bold;
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-card p {
+            position: relative;
+            z-index: 1;
         }
 
         /* Contact Section */
