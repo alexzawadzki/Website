@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alex Zawadzki - Certified Technology Specialist</title>
     <meta name="description" content="Alex Zawadzki - Certified Technology Specialist, Unified Collaboration Engineer, and Live Event Audio Specialist">
+    <link rel="icon" type="image/png" href="/Favicon.png">
     <style>
         * {
             margin: 0;
@@ -65,10 +66,19 @@
         }
 
         nav .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--text-light);
+            display: flex;
+            align-items: center;
             text-decoration: none;
+        }
+
+        nav .logo img {
+            height: 50px;
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+
+        nav .logo img:hover {
+            transform: scale(1.05);
         }
 
         nav ul {
@@ -532,7 +542,7 @@
     <!-- Navigation -->
     <nav id="navbar">
         <div class="container">
-            <a href="#home" class="logo">AZ</a>
+            <a href="#home" class="logo"><img src="/Logo.png" alt="Alex Zawadzki Logo"></a>
             <div class="mobile-menu-toggle" id="mobileMenuToggle">
                 <span></span>
                 <span></span>
