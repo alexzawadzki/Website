@@ -417,6 +417,512 @@
             justify-content: center;
         }
 
+        /* ========================================
+           PORTFOLIO SECTION
+           ======================================== */
+
+        #portfolio {
+            max-width: 1200px;
+            padding: 5rem 2rem;
+        }
+
+        .portfolio-subtitle {
+            text-align: center;
+            color: #64748b;
+            font-size: 1.1rem;
+            margin-top: -0.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        /* Filter Buttons */
+        .portfolio-filters {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.6rem 1.5rem;
+            border: 2px solid rgba(99, 102, 241, 0.3);
+            border-radius: 50px;
+            background: transparent;
+            color: #475569;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .filter-btn:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.2);
+        }
+
+        .filter-btn.active {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            border-color: transparent;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+        }
+
+        /* Portfolio Grid */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Portfolio Card */
+        .portfolio-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.1);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+            border: 2px solid transparent;
+        }
+
+        .portfolio-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 15px;
+            padding: 2px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .portfolio-card:hover::before {
+            opacity: 1;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(99, 102, 241, 0.25);
+        }
+
+        .portfolio-card.active {
+            border-color: var(--primary-color);
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
+        }
+
+        .portfolio-card.active::before {
+            opacity: 1;
+        }
+
+        .portfolio-card.hidden {
+            display: none;
+        }
+
+        .card-image {
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .portfolio-card:hover .card-image img {
+            transform: scale(1.05);
+        }
+
+        .card-category-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            z-index: 1;
+        }
+
+        .badge-av {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+        }
+
+        .badge-network {
+            background: linear-gradient(135deg, #059669, #06b6d4);
+            color: white;
+        }
+
+        .badge-github {
+            background: linear-gradient(135deg, #1e293b, #475569);
+            color: white;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+        }
+
+        .card-body h3 {
+            font-size: 1.15rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .card-body p {
+            color: #64748b;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+
+        .card-tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+        }
+
+        .tech-tag {
+            padding: 0.2rem 0.6rem;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(6, 182, 212, 0.08));
+            border-radius: 4px;
+            font-size: 0.75rem;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .card-expand-hint {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--primary-color);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: gap 0.3s ease;
+        }
+
+        .portfolio-card:hover .card-expand-hint {
+            gap: 0.7rem;
+        }
+
+        .card-expand-hint svg {
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-card.active .card-expand-hint svg {
+            transform: rotate(180deg);
+        }
+
+        /* Detail Panel */
+        .portfolio-detail {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.03), rgba(6, 182, 212, 0.03));
+            border: 2px solid rgba(99, 102, 241, 0.15);
+            border-radius: 15px;
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, padding 0.5s ease, opacity 0.3s ease;
+            opacity: 0;
+            display: none;
+        }
+
+        .portfolio-detail.open {
+            display: block;
+            max-height: 2000px;
+            padding: 2.5rem;
+            opacity: 1;
+        }
+
+        .detail-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+        }
+
+        .detail-header h3 {
+            font-size: 1.6rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+
+        .detail-close {
+            background: none;
+            border: 2px solid rgba(99, 102, 241, 0.3);
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #64748b;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .detail-close:hover {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+        }
+
+        .detail-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .detail-description {
+            color: #334155;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .detail-description h4 {
+            color: var(--text-dark);
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            margin-top: 1.5rem;
+        }
+
+        .detail-description h4:first-child {
+            margin-top: 0;
+        }
+
+        .detail-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .detail-image {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .detail-meta {
+            background: white;
+            border-radius: 10px;
+            padding: 1.25rem;
+            box-shadow: 0 2px 10px rgba(99, 102, 241, 0.08);
+        }
+
+        .detail-meta-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(99, 102, 241, 0.08);
+            font-size: 0.9rem;
+        }
+
+        .detail-meta-row:last-child {
+            border-bottom: none;
+        }
+
+        .detail-meta-label {
+            color: #64748b;
+            font-weight: 600;
+        }
+
+        .detail-meta-value {
+            color: var(--text-dark);
+            font-weight: 500;
+            text-align: right;
+        }
+
+        /* Future expansion placeholder */
+        .detail-docs {
+            grid-column: 1 / -1;
+            margin-top: 1rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid rgba(99, 102, 241, 0.1);
+        }
+
+        .detail-docs h4 {
+            color: var(--text-dark);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .doc-placeholder {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .doc-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.2rem;
+            border: 2px solid rgba(99, 102, 241, 0.2);
+            border-radius: 8px;
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .doc-link:hover {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+        }
+
+        .doc-link.coming-soon {
+            opacity: 0.5;
+            cursor: default;
+            pointer-events: none;
+        }
+
+        /* GitHub-specific card styles */
+        .github-card-body {
+            padding: 1.5rem;
+        }
+
+        .github-card-icon {
+            width: 100%;
+            height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .github-card-icon::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.15), transparent 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .github-card-icon svg {
+            width: 80px;
+            height: 80px;
+            fill: rgba(255, 255, 255, 0.6);
+            position: relative;
+            z-index: 1;
+            transition: all 0.4s ease;
+        }
+
+        .portfolio-card:hover .github-card-icon svg {
+            fill: var(--accent-color);
+            transform: scale(1.1);
+            filter: drop-shadow(0 0 20px rgba(6, 182, 212, 0.4));
+        }
+
+        /* Network card diagram placeholder */
+        .network-card-visual {
+            width: 100%;
+            height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #042f2e 0%, #064e3b 50%, #065f46 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .network-card-visual::before {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(6, 182, 212, 0.1), transparent 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .network-node-grid {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            gap: 18px;
+            padding: 20px;
+        }
+
+        .network-node {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(6, 182, 212, 0.4);
+            position: relative;
+            transition: all 0.4s ease;
+        }
+
+        .network-node.active-node {
+            background: var(--accent-color);
+            box-shadow: 0 0 12px rgba(6, 182, 212, 0.6);
+        }
+
+        .portfolio-card:hover .network-node.active-node {
+            box-shadow: 0 0 20px rgba(6, 182, 212, 0.8);
+        }
+
+        .network-stats-overlay {
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            z-index: 2;
+        }
+
+        .network-stat {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .network-stat-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent-color);
+        }
+
         /* Animations */
         @keyframes fadeInUp {
             from {
@@ -427,6 +933,11 @@
                 opacity: 1;
                 transform: translateY(0);
             }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         /* Responsive Design */
@@ -490,6 +1001,32 @@
             .services-grid {
                 grid-template-columns: 1fr;
             }
+
+            /* Portfolio responsive */
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .portfolio-filters {
+                gap: 0.5rem;
+            }
+
+            .filter-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.85rem;
+            }
+
+            .detail-content {
+                grid-template-columns: 1fr;
+            }
+
+            .portfolio-detail.open {
+                padding: 1.5rem;
+            }
+
+            .detail-header h3 {
+                font-size: 1.3rem;
+            }
         }
 
         @media (max-width: 480px) {
@@ -551,6 +1088,7 @@
             <ul id="navMenu">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
                 <li><a href="#certifications">Certifications</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -580,8 +1118,8 @@
             </div>
 
             <div class="cta-buttons">
-                <a href="#contact" class="btn btn-primary">Get In Touch</a>
-                <a href="#certifications" class="btn btn-secondary">View Certifications</a>
+                <a href="#portfolio" class="btn btn-primary">View Portfolio</a>
+                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
             </div>
         </div>
         <div class="scroll-indicator"></div>
@@ -594,6 +1132,705 @@
             <p>As a Certified Technology Specialist with extensive experience in unified collaboration and live event audio, I bring technical expertise and creative problem-solving to every project. My passion lies in delivering seamless audio-visual experiences that exceed expectations.</p>
             <p>With industry-recognized certifications and hands-on experience, I specialize in designing, implementing, and managing cutting-edge collaboration systems and delivering exceptional audio quality for live events.</p>
         </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio">
+        <h2>Portfolio</h2>
+        <p class="portfolio-subtitle">Enterprise AV systems, network infrastructure, and software projects</p>
+
+        <div class="portfolio-filters">
+            <button class="filter-btn active" data-filter="all">All Projects</button>
+            <button class="filter-btn" data-filter="av">AV System Designs</button>
+            <button class="filter-btn" data-filter="network">Network Designs</button>
+            <button class="filter-btn" data-filter="github">GitHub / Software</button>
+        </div>
+
+        <div class="portfolio-grid" id="portfolioGrid">
+
+            <!-- AV SYSTEM DESIGN CARDS -->
+
+            <!-- Card 1: Law Firm Conference Room -->
+            <div class="portfolio-card" data-category="av" data-id="lawfirm">
+                <div class="card-image">
+                    <span class="card-category-badge badge-av">AV Design</span>
+                    <img src="P1378ColeSchotzNYC05.jpg" alt="Law firm executive boardroom with dual displays and Crestron control" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <h3>Law Firm Executive Boardroom</h3>
+                    <p>Full AV buildout for a national law firm's NYC office, featuring Microsoft Teams Rooms, Crestron control, and multi-display presentation with ceiling microphone coverage.</p>
+                    <div class="card-tech-tags">
+                        <span class="tech-tag">Microsoft Teams</span>
+                        <span class="tech-tag">Crestron</span>
+                        <span class="tech-tag">Shure MXA</span>
+                        <span class="tech-tag">Biamp Tesira</span>
+                    </div>
+                    <div class="card-expand-hint">
+                        View details
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detail: Law Firm -->
+            <div class="portfolio-detail" id="detail-lawfirm">
+                <div class="detail-header">
+                    <h3>Law Firm Executive Boardroom</h3>
+                    <button class="detail-close" aria-label="Close details">&times;</button>
+                </div>
+                <div class="detail-content">
+                    <div class="detail-description">
+                        <h4>Project Overview</h4>
+                        <p>Designed and deployed a complete AV system for a national law firm relocating to a premier NYC office. The flagship boardroom required a high-performance environment that supports Microsoft Teams video conferencing, in-room presentations, and all-hands meetings for up to 20 participants.</p>
+
+                        <h4>Technical Scope</h4>
+                        <p>The room features dual 86" commercial displays driven by a Crestron NVX-based AV-over-IP distribution system. A Crestron touch panel provides one-touch meeting join and source switching. Shure MXA ceiling array microphones deliver full-coverage voice pickup across the boardroom table, processed through Biamp Tesira DSP for echo cancellation, automatic gain control, and room EQ. Multiple conference rooms across the office share a unified control and UC platform.</p>
+
+                        <h4>Outcome</h4>
+                        <p>The firm's attorneys and staff can join Teams meetings, share content wirelessly, and present to clients without any technical friction. The system supports both in-room and hybrid collaboration with consistent audio/video quality.</p>
+                    </div>
+                    <div class="detail-sidebar">
+                        <img src="P1378ColeSchotzNYC05.jpg" alt="Law firm boardroom completed installation" class="detail-image">
+                        <div class="detail-meta">
+                            <div class="detail-meta-row">
+                                <span class="detail-meta-label">Sector</span>
+                                <span class="detail-meta-value">Legal</span>
+                            </div>
+                            <div class="detail-meta-row">
+                                <span class="detail-meta-label">Location</span>
+                                <span class="detail-meta-value">New York, NY</span>
+                            </div>
+                            <div class="detail-meta-row">
+                                <span class="detail-meta-label">Room Count</span>
+                                <span class="detail-meta-value">12+ Rooms</span>
+                            </div>
+                            <div class="detail-meta-row">
+                                <span class="detail-meta-label">UC Platform</span>
+                                <span class="detail-meta-value">Microsoft Teams</span>
+                            </div>
+                            <div class="detail-meta-row">
+                                <span class="detail-meta-label">Control</span>
+                                <span class="detail-meta-value">Crestron</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="detail-docs">
+                        <h4>Supporting Documents</h4>
+                        <div class="doc-placeholder">
+                            <a href="#" class="doc-link coming-soon">📄 Signal Flow Diagram (Coming Soon)</a>
+                            <a href="#" class="doc-link coming-soon">📋 Scope of Work (Coming Soon)</a>
+                            <a href="#" class="doc-link coming-soon">📊 Capabilities Matrix (Coming Soon)</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2: Aerospace Conference Room -->
+            <div class="portfolio-card" data-category="av" data-id="aerospace">
+                <div class="card-image">
+                    <span class="card-category-badge badge-av">AV Design</span>
+                    <img src="P1183PrattWhitneyAshevilleNC010.jpg" alt="Aerospace manufacturing conference room with dual displays" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <h3>Aerospace Manufacturing Conference Room</h3>
+                    <p>Dual-display conference room for a Fortune 500 aerospace manufacturer. Integrated Cisco video conferencing with Crestron control and table-integrated connectivity for engineering collaboration.</p>
+                    <div class="card-tech-tags">
+                        <span class="tech-tag">Cisco</span>
+                        <span class="tech-tag">Crestron</span>
+                        <span class="tech-tag">QSC Q-SYS</span>
+                        <span class="tech-tag">Vaddio</span>
+                    </div>
+                    <div class="card-expand-hint">
+                        View details
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detail: Aerospace -->
+            <div class="portfolio-detail" id="detail-aerospace">
+                <div class="detail-header">
+                    <h3>Aerospace Manufacturing Conference Room</h3>
+                    <button class="detail-close" aria-label="Close details">&times;</button>
+                </div>
+                <div class="detail-content">
+                    <div class="detail-description">
+                        <h4>Project Overview</h4>
+                        <p>Designed a technology-enabled conference room for a major aerospace manufacturer's facility in Asheville, NC. The space supports engineering design reviews, supplier meetings, and executive briefings with Cisco video conferencing capabilities.</p>
+
+                        <h4>Technical Scope</h4>
+                        <p>The room features dual commercial displays with a Crestron touch panel for source selection and call management. Cisco video conferencing provides global connectivity to other manufacturing sites. A ceiling-mounted PTZ camera captures the full seating area. Audio processing through QSC Q-SYS handles echo cancellation and noise reduction critical for a manufacturing environment. Table connectivity boxes provide HDMI and USB-C inputs for engineering laptop presentations.</p>
+
+                        <h4>Outcome</h4>
+                        <p>Engineering teams can now conduct design reviews with remote facilities in real time, reducing travel costs and accelerating the review cycle. The room supports both Cisco and Microsoft Teams calls through Pexip interoperability.</p>
+                    </div>
+                    <div class="detail-sidebar">
+                        <img src="P1183PrattWhitneyAshevilleNC010.jpg" alt="Aerospace conference room installation" class="detail-image">
+                        <div class="detail-meta">
+                            <div class="detail-meta-row">
+                                <span class="detail-meta-label">Sector</span>
+                                <span class="detail-meta-value">Aerospace</span>
+                            </div>
+                            <div class="detail-meta-row">
+                                <span class="detail-meta-label">Location</span>
+                                <span class="detail-meta-value">Asheville, NC</span>
+                            </div>
+                            <div class="detail-meta-row">
+                                <span class="detail-meta-label">UC Platform</span>
+                                <span class="detail-meta-value">Cisco + Pexip</span>
+                            </div>
+                            <div class="detail-meta-row">
+                                <span class="detail-meta-label">Control</span>
+                                <span class="detail-meta-value">Crestron</span>
+                            </div>
+                            <div class="detail-meta-row">
+                                <span class="detail-meta-label">Audio DSP</span>
+                                <span class="detail-meta-value">QSC Q-SYS</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="detail-docs">
+                        <h4>Supporting Documents</h4>
+                        <div class="doc-placeholder">
+                            <a href="#" class="doc-link coming-soon">📄 Signal Flow Diagram (Coming Soon)</a>
+                            <a href="#" class="doc-link coming-soon">📋 Scope of Work (Coming Soon)</a>
+                            <a href="#" class="doc-link coming-soon">📊 Capabilities Matrix (Coming Soon)</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3: Fortune 500 Multipurpose Room -->
+            <div class="portfolio-card" data-category="av" data-id="fortune500">
+                <div class="card-image">
+                    <span class="card-category-badge badge-av">AV Design</span>
+                    <img src="detailed_analysis_2.jpg" alt="Fortune 500 multipurpose collaboration space with dual displays" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <h3>Fortune 500 Multipurpose Collaboration Space</h3>
+                    <p>Large-scale design-build for a global manufacturer. Capabilities matrix and VR modeling guided the design of a flexible space with video wall, wireless presentation, and full conferencing support.</p>
+                    <div class="card-tech-tags">
+                        <span class="tech-tag">Mersive Solstice</span>
+                        <span class="tech-tag">Crestron</span>
+                        <span class="tech-tag">Extron</span>
+                        <span class="tech-tag">Video Wall</span>
+                    </div>
+                    <div class="card-expand-hint">
+                        View details
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detail: Fortune 500 -->
+            <div class="portfolio-detail" id="detail-fortune500">
+                <div class="detail-header">
+                    <h3>Fortune 500 Multipurpose Collaboration Space</h3>
+                    <button class="detail-close" aria-label="Close details">&times;</button>
+                </div>
+                <div class="detail-content">
+                    <div class="detail-description">
+                        <h4>Project Overview</h4>
+                        <p>A global Fortune 500 manufacturer needed a multipurpose room that could serve as a presentation space, video conferencing room, and collaborative work area. VisionPoint created a detailed capabilities matrix and virtual reality model to help stakeholders visualize and validate the design before construction.</p>
+
+                        <h4>Technical Scope</h4>
+                        <p>The space features a multi-panel video wall driven by Extron signal distribution, Mersive Solstice wireless presentation for BYOD connectivity, and Crestron control system integration. The design accommodates multiple seating configurations with consistent audio and video coverage. The lounge-style layout includes perimeter workstations, a central collaboration area, and a large-format display wall for presentations and digital signage.</p>
+
+                        <h4>Outcome</h4>
+                        <p>The room now serves as a flagship collaboration space that supports town halls, product launches, client visits, and day-to-day team collaboration. The flexible design allows the client to reconfigure the space without technology changes.</p>
+                    </div>
+                    <div class="detail-sidebar">
+                        <img src="detailed_analysis_2.jpg" alt="Fortune 500 multipurpose room" class="detail-image">
+                        <div class="detail-meta">
+                            <div class="detail-meta-row">
+                                <span class="detail-meta-label">Sector</span>
+                                <span class="detail-meta-value">Manufacturing</span>
+                            </div>
+                            <div class="detail-meta-row">
+                                <span class="detail-meta-label">Type</span>
+                                <span class="detail-meta-value">Design-Build</span>
+                            </div>
+                            <div class="detail-meta-row">
+                                <span class="detail-meta-label">Display</span>
+                                <span class="detail-meta-value">Video Wall + Displays</span>
+                            </div>
+                            <div class="detail-meta-row">
+                                <span class="detail-meta-label">Wireless</span>
+                                <span class="detail-meta-value">Mersive Solstice</span>
+                            </div>
+                            <div class="detail-meta-row">
+                                <span class="detail-meta-label">Control</span>
+                                <span class="detail-meta-value">Crestron</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="detail-docs">
+                        <h4>Supporting Documents</h4>
+                        <div class="doc-placeholder">
+                            <a href="#" class="doc-link coming-soon">📄 Signal Flow Diagram (Coming Soon)</a>
+                            <a href="#" class="doc-link coming-soon">📋 Scope of Work (Coming Soon)</a>
+                            <a href="#" class="doc-link coming-soon">📊 Capabilities Matrix (Coming Soon)</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4: CPG Focus/Observation Room -->
+            <div class="portfolio-card" data-category="av" data-id="cpg">
+                <div class="card-image">
+                    <span class="card-category-badge badge-av">AV Design</span>
+                    <img src="cpg_case_study.png" alt="CPG company focus room and observation room design" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <h3>CPG Focus and Observation Room</h3>
+                    <p>Dual-room system for a consumer packaged goods company. Multi-camera focus room paired with an observation room for real-time consumer research and product development feedback.</p>
+                    <div class="card-tech-tags">
+                        <span class="tech-tag">Crestron</span>
+                        <span class="tech-tag">Vaddio</span>
+                        <span class="tech-tag">Barco</span>
+                        <span class="tech-tag">Shure</span>
+                        <span class="tech-tag">Biamp</span>
+                    </div>
+                    <div class="card-expand-hint">
+                        View details
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detail: CPG -->
+            <div class="portfolio-detail" id="detail-cpg">
+                <div class="detail-header">
+                    <h3>CPG Focus and Observation Room</h3>
+                    <button class="detail-close" aria-label="Close details">&times;</button>
+                </div>
+                <div class="detail-content">
+                    <div class="detail-description">
+                        <h4>Project Overview</h4>
+                        <p>A major consumer packaged goods company needed a focus room environment for observing and recording consumer interactions with product packaging. The design involved two interconnected spaces: a focus room where consumers interact with products, and an observation room where researchers monitor sessions in real time.</p>
+
+                        <h4>Technical Scope</h4>
+                        <p>Multiple Vaddio PTZ cameras provide flexible angles throughout the focus room, controlled via joystick from the observation room. Shure microphones capture all participant audio, routed through Biamp Tesira DSP. Barco ClickShare enables wireless content sharing during debrief sessions. Crestron control ties the entire system together with custom programming for camera presets, recording controls, and display management. Technology specifications include Crestron, Vaddio, Extron, QSC, Lenovo, LG, Biamp, Middle Atlantic, Netgear, Barco, and Shure.</p>
+
+                        <h4>Outcome</h4>
+                        <p>Packaging designers use the captured consumer interactions to refine designs for Fortune 500 brand products. The concepts developed in this room apply to similar spaces such as moot court rooms and teaching labs.</p>
+                    </div>
+                    <div class="detail-sidebar">
+                        <img src="cpg_case_study.png" alt="CPG focus room case study" class="detail-image">
+                        <div class="detail-meta">
+                            <div class="detail-meta-row">
+                                <span class="detail-meta-label">Sector</span>
+                                <span class="detail-meta-value">Consumer Goods</span>
+                            </div>
+                            <div class="detail-meta-row">
+                                <span class="detail-meta-label">Room Type</span>
+                                <span class="detail-meta-value">Focus + Observation</span>
+                            </div>
+                            <div class="detail-meta-row">
+                                <span class="detail-meta-label">Cameras</span>
+                                <span class="detail-meta-value">Multi-PTZ (Vaddio)</span>
+                            </div>
+                            <div class="detail-meta-row">
+                                <span class="detail-meta-label">Audio</span>
+                                <span class="detail-meta-value">Shure + Biamp DSP</span>
+                            </div>
+                            <div class="detail-meta-row">
+                                <span class="detail-meta-label">Control</span>
+                                <span class="detail-meta-value">Crestron</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="detail-docs">
+                        <h4>Supporting Documents</h4>
+                        <div class="doc-placeholder">
+                            <a href="#" class="doc-link coming-soon">📄 Signal Flow Diagram (Coming Soon)</a>
+                            <a href="#" class="doc-link coming-soon">📋 Scope of Work (Coming Soon)</a>
+                            <a href="#" class="doc-link coming-soon">📊 Capabilities Matrix (Coming Soon)</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 5: Regional Bank HQ -->
+            <div class="portfolio-card" data-category="av" data-id="bank">
+                <div class="card-image">
+                    <span class="card-category-badge badge-av">AV Design</span>
+                    <img src="bank_case_study.png" alt="Regional bank headquarters AV deployment" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <h3>Regional Bank Headquarters Buildout</h3>
+                    <p>Multi-phase technology deployment for a regional bank's new headquarters. Included a proof-of-concept phase, phased construction alignment, and full buildout of conference, training, and executive spaces.</p>
+                    <div class="card-tech-tags">
+                        <span class="tech-tag">Zoom Rooms</span>
+                        <span class="tech-tag">Crestron</span>
+                        <span class="tech-tag">Multi-Phase</span>
+                        <span class="tech-tag">POC</span>
+                    </div>
+                    <div class="card-expand-hint">
+                        View details
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detail: Bank -->
+            <div class="portfolio-detail" id="detail-bank">
+                <div class="detail-header">
+                    <h3>Regional Bank Headquarters Buildout</h3>
+                    <button class="detail-close" aria-label="Close details">&times;</button>
+                </div>
+                <div class="detail-content">
+                    <div class="detail-description">
+                        <h4>Project Overview</h4>
+                        <p>A regional bank undertook a complete headquarters remodel, transitioning from basic presentation technology to a modern unified communications environment. The project required a multi-phased delivery model to align with construction scheduling and budget validation.</p>
+
+                        <h4>Technical Scope</h4>
+                        <p>Phase 1 involved design and consulting, bringing together executive management, IT, operations, and the project architect for a complete discovery process. Phase 2 delivered a proof of concept room at a nearby location for the bank to evaluate before committing to full deployment. Phase 3 executed the build across all conference, training, and executive spaces. Each room was designed with the bank's collaboration requirements in mind, supporting Zoom Rooms, hybrid meetings, and in-room presentation.</p>
+
+                        <h4>Outcome</h4>
+                        <p>The phased approach gave the bank confidence in the technology investment, validated the budget before construction, and delivered a headquarters where every meeting space supports modern hybrid collaboration. The customized delivery model became a reference for future client engagements.</p>
+                    </div>
+                    <div class="detail-sidebar">
+                        <img src="bank_case_study.png" alt="Regional bank HQ case study" class="detail-image">
+                        <div class="detail-meta">
+                            <div class="detail-meta-row">
+                                <span class="detail-meta-label">Sector</span>
+                                <span class="detail-meta-value">Financial Services</span>
+                            </div>
+                            <div class="detail-meta-row">
+                                <span class="detail-meta-label">Delivery</span>
+                                <span class="detail-meta-value">3-Phase (Design/POC/Build)</span>
+                            </div>
+                            <div class="detail-meta-row">
+                                <span class="detail-meta-label">UC Platform</span>
+                                <span class="detail-meta-value">Zoom Rooms</span>
+                            </div>
+                            <div class="detail-meta-row">
+                                <span class="detail-meta-label">Control</span>
+                                <span class="detail-meta-value">Crestron</span>
+                            </div>
+                            <div class="detail-meta-row">
+                                <span class="detail-meta-label">Scope</span>
+                                <span class="detail-meta-value">Full HQ Buildout</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="detail-docs">
+                        <h4>Supporting Documents</h4>
+                        <div class="doc-placeholder">
+                            <a href="#" class="doc-link coming-soon">📄 Signal Flow Diagram (Coming Soon)</a>
+                            <a href="#" class="doc-link coming-soon">📋 Scope of Work (Coming Soon)</a>
+                            <a href="#" class="doc-link coming-soon">📊 Capabilities Matrix (Coming Soon)</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 6: LED vs Projector Technical Analysis -->
+            <div class="portfolio-card" data-category="av" data-id="ledanalysis">
+                <div class="card-image">
+                    <span class="card-category-badge badge-av">AV Design</span>
+                    <img src="lawfirm_case_study.png" alt="Law firm multi-room AV deployment with Teams" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <h3>Law Firm Multi-Room Teams Deployment</h3>
+                    <p>Transformed a law firm's conference spaces into Microsoft Teams-enabled collaboration environments. Included training rooms, boardrooms, and huddle spaces with consistent user experience across all rooms.</p>
+                    <div class="card-tech-tags">
+                        <span class="tech-tag">Microsoft Teams</span>
+                        <span class="tech-tag">Crestron</span>
+                        <span class="tech-tag">Shure</span>
+                        <span class="tech-tag">Multi-Room</span>
+                    </div>
+                    <div class="card-expand-hint">
+                        View details
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detail: Law Firm Multi-Room -->
+            <div class="portfolio-detail" id="detail-ledanalysis">
+                <div class="detail-header">
+                    <h3>Law Firm Multi-Room Teams Deployment</h3>
+                    <button class="detail-close" aria-label="Close details">&times;</button>
+                </div>
+                <div class="detail-content">
+                    <div class="detail-description">
+                        <h4>Project Overview</h4>
+                        <p>VisionPoint transformed a law firm's meeting spaces into a premier, high-performance environment built around Microsoft Teams. The project covered training rooms with configurable layouts, executive boardrooms, and standard conference rooms, all designed for a consistent look and feel.</p>
+
+                        <h4>Technical Scope</h4>
+                        <p>Each room was equipped with commercial displays, Shure ceiling microphone arrays for natural voice pickup, and Crestron control with one-touch meeting join. Training rooms feature multi-display configurations for presenting to larger groups. The boardroom includes a PTZ camera, wireless content sharing, and integrated audio conferencing. Every room connects to Microsoft Teams for scheduling, one-touch join, and hybrid meeting support.</p>
+
+                        <h4>Outcome</h4>
+                        <p>The firm's staff can walk into any room and have the same experience: tap the touch panel, join a Teams call, share content, and collaborate without needing IT support. The environment stands out for both its functionality and its aesthetics.</p>
+                    </div>
+                    <div class="detail-sidebar">
+                        <img src="lawfirm_case_study.png" alt="Law firm multi-room deployment" class="detail-image">
+                        <div class="detail-meta">
+                            <div class="detail-meta-row">
+                                <span class="detail-meta-label">Sector</span>
+                                <span class="detail-meta-value">Legal</span>
+                            </div>
+                            <div class="detail-meta-row">
+                                <span class="detail-meta-label">Room Types</span>
+                                <span class="detail-meta-value">Training, Board, Conference</span>
+                            </div>
+                            <div class="detail-meta-row">
+                                <span class="detail-meta-label">UC Platform</span>
+                                <span class="detail-meta-value">Microsoft Teams</span>
+                            </div>
+                            <div class="detail-meta-row">
+                                <span class="detail-meta-label">Audio</span>
+                                <span class="detail-meta-value">Shure Ceiling Arrays</span>
+                            </div>
+                            <div class="detail-meta-row">
+                                <span class="detail-meta-label">Control</span>
+                                <span class="detail-meta-value">Crestron</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="detail-docs">
+                        <h4>Supporting Documents</h4>
+                        <div class="doc-placeholder">
+                            <a href="#" class="doc-link coming-soon">📄 Signal Flow Diagram (Coming Soon)</a>
+                            <a href="#" class="doc-link coming-soon">📋 Scope of Work (Coming Soon)</a>
+                            <a href="#" class="doc-link coming-soon">📊 Capabilities Matrix (Coming Soon)</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NETWORK DESIGN CARDS -->
+
+            <!-- Card 7: Berlin Lions Club Network -->
+            <div class="portfolio-card" data-category="network" data-id="berlinnw">
+                <div class="card-image">
+                    <div class="network-card-visual">
+                        <div class="network-node-grid">
+                            <div class="network-node"></div>
+                            <div class="network-node active-node"></div>
+                            <div class="network-node"></div>
+                            <div class="network-node active-node"></div>
+                            <div class="network-node"></div>
+                            <div class="network-node active-node"></div>
+                            <div class="network-node"></div>
+                            <div class="network-node active-node"></div>
+                            <div class="network-node"></div>
+                            <div class="network-node active-node"></div>
+                            <div class="network-node"></div>
+                            <div class="network-node active-node"></div>
+                            <div class="network-node"></div>
+                            <div class="network-node"></div>
+                            <div class="network-node active-node"></div>
+                        </div>
+                        <div class="network-stats-overlay">
+                            <div class="network-stat"><span class="network-stat-dot"></span> 80+ Managed Switches</div>
+                            <div class="network-stat"><span class="network-stat-dot"></span> 300,000+ Annual Attendees</div>
+                            <div class="network-stat"><span class="network-stat-dot"></span> 99% Uptime</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h3>Berlin Lions Club Event Network</h3>
+                    <p>Enterprise-scale network infrastructure supporting one of Connecticut's largest annual fairs. 80+ managed switches, mesh wireless, fiber backbone, and VLAN segmentation serving 300,000+ attendees over a 10-day event.</p>
+                    <div class="card-tech-tags">
+                        <span class="tech-tag">80+ Switches</span>
+                        <span class="tech-tag">Mesh WiFi</span>
+                        <span class="tech-tag">Fiber</span>
+                        <span class="tech-tag">VLANs</span>
+                    </div>
+                    <div class="card-expand-hint">
+                        View details
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detail: Berlin Network -->
+            <div class="portfolio-detail" id="detail-berlinnw">
+                <div class="detail-header">
+                    <h3>Berlin Lions Club Event Network Infrastructure</h3>
+                    <button class="detail-close" aria-label="Close details">&times;</button>
+                </div>
+                <div class="detail-content">
+                    <div class="detail-description">
+                        <h4>Project Overview</h4>
+                        <p>As Assistant Superintendent of Technology for the Berlin Lions Club, I designed and deployed an enterprise-scale network infrastructure supporting mission-critical operations for one of Connecticut's largest annual fairs, serving 300,000+ attendees over a 10-day run.</p>
+
+                        <h4>Technical Scope</h4>
+                        <p>The network spans multiple buildings connected via multimode and single-mode fiber optic backbone. Over 80 managed switches provide wired connectivity for point-of-sale terminals, ticketing systems, vendor operations, and administrative functions. VLAN segmentation isolates traffic between operational systems, public WiFi, and management networks. A centrally managed mesh wireless network provides coverage across the entire fairgrounds. Redundancy measures ensure failover for mission-critical systems like ticketing and registration.</p>
+
+                        <h4>Challenges Solved</h4>
+                        <p>The temporary nature of the event requires rapid deployment and teardown each year while maintaining enterprise-grade reliability. Outdoor environmental factors including weather, power fluctuations, and physical security all required engineering around. The network must handle massive concurrent user counts during peak hours while keeping operational systems responsive.</p>
+
+                        <h4>Outcome</h4>
+                        <p>The infrastructure achieves 99% uptime during the 10-day event, supporting ticketing, registration, vendor payments, live streaming, and public WiFi. The network has been refined annually, with each iteration improving reliability and capacity.</p>
+                    </div>
+                    <div class="detail-sidebar">
+                        <div class="detail-meta">
+                            <div class="detail-meta-row">
+                                <span class="detail-meta-label">Organization</span>
+                                <span class="detail-meta-value">Berlin Lions Club</span>
+                            </div>
+                            <div class="detail-meta-row">
+                                <span class="detail-meta-label">Role</span>
+                                <span class="detail-meta-value">Asst. Supt. of Technology</span>
+                            </div>
+                            <div class="detail-meta-row">
+                                <span class="detail-meta-label">Switches</span>
+                                <span class="detail-meta-value">80+ Managed</span>
+                            </div>
+                            <div class="detail-meta-row">
+                                <span class="detail-meta-label">Backbone</span>
+                                <span class="detail-meta-value">MM/SM Fiber</span>
+                            </div>
+                            <div class="detail-meta-row">
+                                <span class="detail-meta-label">Wireless</span>
+                                <span class="detail-meta-value">Centralized Mesh</span>
+                            </div>
+                            <div class="detail-meta-row">
+                                <span class="detail-meta-label">Segmentation</span>
+                                <span class="detail-meta-value">VLAN Isolated</span>
+                            </div>
+                            <div class="detail-meta-row">
+                                <span class="detail-meta-label">Annual Attendees</span>
+                                <span class="detail-meta-value">300,000+</span>
+                            </div>
+                            <div class="detail-meta-row">
+                                <span class="detail-meta-label">Uptime</span>
+                                <span class="detail-meta-value">99%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GITHUB / SOFTWARE CARDS -->
+
+            <!-- Card 8: Event Registration Platform -->
+            <div class="portfolio-card" data-category="github" data-id="eventreg">
+                <div class="card-image">
+                    <div class="github-card-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h3>Event Registration and Ticketing Platform</h3>
+                    <p>Custom-built registration and ticketing system for the Berlin Lions Club fair. Handles exhibit registration, attendee ticketing, and event management for 300,000+ annual visitors.</p>
+                    <div class="card-tech-tags">
+                        <span class="tech-tag">Custom Software</span>
+                        <span class="tech-tag">Event Mgmt</span>
+                        <span class="tech-tag">Ticketing</span>
+                    </div>
+                    <div class="card-expand-hint">
+                        View details
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detail: Event Registration -->
+            <div class="portfolio-detail" id="detail-eventreg">
+                <div class="detail-header">
+                    <h3>Event Registration and Ticketing Platform</h3>
+                    <button class="detail-close" aria-label="Close details">&times;</button>
+                </div>
+                <div class="detail-content">
+                    <div class="detail-description">
+                        <h4>Project Overview</h4>
+                        <p>Developed and administered custom software systems for event management at the Berlin Lions Club, one of Connecticut's largest annual fairs. The platform handles the full lifecycle of event operations: exhibit registration, vendor management, attendee ticketing, and day-of-event logistics.</p>
+
+                        <h4>Key Features</h4>
+                        <p>The exhibit registration system allows vendors and exhibitors to register online, select booth locations, and submit required documentation. The ticketing platform manages admission sales, pricing tiers, and real-time capacity tracking. Administrative dashboards provide event organizers with live data on registrations, revenue, and attendance metrics. The system integrates with the on-site network infrastructure for reliable point-of-sale and scanning operations.</p>
+
+                        <h4>Impact</h4>
+                        <p>The platform streamlines operations that were previously handled manually, reducing registration processing time and improving the experience for both exhibitors and attendees across the 300,000+ annual visitor event.</p>
+                    </div>
+                    <div class="detail-sidebar">
+                        <div class="detail-meta">
+                            <div class="detail-meta-row">
+                                <span class="detail-meta-label">Type</span>
+                                <span class="detail-meta-value">Custom Web Application</span>
+                            </div>
+                            <div class="detail-meta-row">
+                                <span class="detail-meta-label">Use Case</span>
+                                <span class="detail-meta-value">Event Operations</span>
+                            </div>
+                            <div class="detail-meta-row">
+                                <span class="detail-meta-label">Scale</span>
+                                <span class="detail-meta-value">300,000+ Visitors/Year</span>
+                            </div>
+                            <div class="detail-meta-row">
+                                <span class="detail-meta-label">Status</span>
+                                <span class="detail-meta-value">Production</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 9: Personal Portfolio Website -->
+            <div class="portfolio-card" data-category="github" data-id="website">
+                <div class="card-image">
+                    <div class="github-card-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h3>Personal Portfolio Website</h3>
+                    <p>This website. Built with vanilla HTML, CSS, and JavaScript. Features responsive design, smooth scroll animations, gradient theming, and hosted on GitHub Pages with a custom domain.</p>
+                    <div class="card-tech-tags">
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">GitHub Pages</span>
+                    </div>
+                    <div class="card-expand-hint">
+                        View details
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detail: Website -->
+            <div class="portfolio-detail" id="detail-website">
+                <div class="detail-header">
+                    <h3>Personal Portfolio Website</h3>
+                    <button class="detail-close" aria-label="Close details">&times;</button>
+                </div>
+                <div class="detail-content">
+                    <div class="detail-description">
+                        <h4>Project Overview</h4>
+                        <p>Designed and built this portfolio site from scratch using vanilla HTML, CSS, and JavaScript. No frameworks or build tools. The site showcases professional experience, certifications, and project work with a focus on clean design and fast load times.</p>
+
+                        <h4>Technical Highlights</h4>
+                        <p>CSS custom properties drive a consistent gradient theme. Intersection Observer API powers scroll-triggered animations. The responsive layout uses CSS Grid and Flexbox with breakpoints for mobile, tablet, and desktop. The site is hosted on GitHub Pages with a custom domain (alexzawadzki.net) and loads with zero external dependencies beyond the browser.</p>
+                    </div>
+                    <div class="detail-sidebar">
+                        <div class="detail-meta">
+                            <div class="detail-meta-row">
+                                <span class="detail-meta-label">Stack</span>
+                                <span class="detail-meta-value">HTML / CSS / JS</span>
+                            </div>
+                            <div class="detail-meta-row">
+                                <span class="detail-meta-label">Hosting</span>
+                                <span class="detail-meta-value">GitHub Pages</span>
+                            </div>
+                            <div class="detail-meta-row">
+                                <span class="detail-meta-label">Domain</span>
+                                <span class="detail-meta-value">alexzawadzki.net</span>
+                            </div>
+                            <div class="detail-meta-row">
+                                <span class="detail-meta-label">Repo</span>
+                                <span class="detail-meta-value"><a href="https://github.com/alexzawadzki/Website" target="_blank" style="color: var(--primary-color); text-decoration: none;">View on GitHub ↗</a></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div><!-- end portfolio-grid -->
     </section>
 
     <!-- Certifications Section -->
@@ -711,8 +1948,119 @@
                 }
             });
         });
+
+        // ========================================
+        // PORTFOLIO FUNCTIONALITY
+        // ========================================
+
+        // Filter buttons
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const portfolioCards = document.querySelectorAll('.portfolio-card');
+        const portfolioDetails = document.querySelectorAll('.portfolio-detail');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const filter = btn.dataset.filter;
+
+                // Update active button
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                // Close any open detail panels
+                closeAllDetails();
+
+                // Filter cards
+                portfolioCards.forEach(card => {
+                    if (filter === 'all' || card.dataset.category === filter) {
+                        card.classList.remove('hidden');
+                        card.style.animation = 'fadeIn 0.4s ease forwards';
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+            });
+        });
+
+        // Card click to toggle detail panel
+        portfolioCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const id = card.dataset.id;
+                const detail = document.getElementById('detail-' + id);
+                const isOpen = detail.classList.contains('open');
+
+                // Close all details first
+                closeAllDetails();
+
+                if (!isOpen && detail) {
+                    // Open this detail
+                    card.classList.add('active');
+                    detail.classList.add('open');
+
+                    // Position the detail panel after the card's row
+                    positionDetailPanel(card, detail);
+
+                    // Scroll to detail after a short delay for animation
+                    setTimeout(() => {
+                        detail.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                    }, 100);
+                }
+            });
+        });
+
+        // Close buttons in detail panels
+        document.querySelectorAll('.detail-close').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                closeAllDetails();
+            });
+        });
+
+        function closeAllDetails() {
+            portfolioDetails.forEach(d => d.classList.remove('open'));
+            portfolioCards.forEach(c => c.classList.remove('active'));
+            // Reset detail positions
+            portfolioDetails.forEach(d => {
+                d.style.display = 'none';
+                d.classList.remove('open');
+            });
+        }
+
+        function positionDetailPanel(card, detail) {
+            const grid = document.getElementById('portfolioGrid');
+            const gridItems = Array.from(grid.children).filter(
+                el => el.classList.contains('portfolio-card') && !el.classList.contains('hidden')
+            );
+
+            // Get card's position info
+            const cardRect = card.getBoundingClientRect();
+            const gridRect = grid.getBoundingClientRect();
+
+            // Find all visible cards in the same row
+            const cardTop = card.offsetTop;
+            let lastInRow = card;
+            for (const item of gridItems) {
+                if (item.offsetTop === cardTop) {
+                    lastInRow = item;
+                }
+            }
+
+            // Insert detail after the last card in the same row
+            // Find the next sibling after lastInRow in DOM that isn't a detail
+            let insertAfter = lastInRow;
+            while (insertAfter.nextElementSibling &&
+                   insertAfter.nextElementSibling.classList.contains('portfolio-detail')) {
+                insertAfter = insertAfter.nextElementSibling;
+            }
+
+            // Move detail panel to correct position in DOM
+            insertAfter.after(detail);
+
+            // Show it
+            detail.style.display = 'block';
+            requestAnimationFrame(() => {
+                detail.classList.add('open');
+            });
+        }
     </script>
 </body>
 </html>
-
-
