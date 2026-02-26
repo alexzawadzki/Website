@@ -3,14 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Primary SEO -->
-    <title>Alex Zawadzki, CTS | AV Engineer &amp; Unified Collaboration Specialist</title>
-    <meta name="description" content="Alex Zawadzki is an AVIXA-certified AV engineer (CTS) specializing in Unified Collaboration, Microsoft Teams Rooms, Crestron, and live event audio. Available for hire.">
-    <meta name="keywords" content="AV engineer, audiovisual engineer, CTS, AVIXA certified, unified collaboration engineer, Microsoft Teams Rooms, Crestron programmer, live event audio, AV systems design, Alex Zawadzki">
-    <meta name="author" content="Alex Zawadzki">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://alexzawadzki.net">
+    <title>Alex Zawadzki - Certified Technology Specialist</title>
+    <meta name="description" content="Alex Zawadzki - Certified Technology Specialist, Unified Collaboration Engineer, and Live Event Audio Specialist">
     <link rel="icon" type="image/png" href="/Favicon.png">
 
     <!-- Open Graph (LinkedIn, Facebook, Slack previews) -->
@@ -535,6 +529,179 @@
         .service-card p {
             position: relative;
             z-index: 1;
+        }
+
+        /* Certifications Section - Revised */
+        .cert-categories {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .cert-category-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #64748b;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .cert-category-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            margin: 0.5rem auto 0;
+            border-radius: 2px;
+        }
+
+        .cert-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .cert-card-v2 {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.04), rgba(6, 182, 212, 0.04));
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 2px solid transparent;
+            box-shadow: 0 3px 15px rgba(99, 102, 241, 0.1);
+            transition: all 0.4s ease;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cert-card-v2::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 12px;
+            padding: 2px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .cert-card-v2:hover::before {
+            opacity: 1;
+        }
+
+        .cert-card-v2:hover {
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 0 12px 30px rgba(99, 102, 241, 0.25);
+        }
+
+        .cert-card-v2 .cert-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.6rem;
+            transition: all 0.3s ease;
+        }
+
+        .cert-card-v2:hover .cert-icon {
+            transform: scale(1.15);
+            filter: drop-shadow(0 4px 10px rgba(99, 102, 241, 0.3));
+        }
+
+        .cert-card-v2 h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+        }
+
+        .cert-card-v2 .cert-issuer {
+            font-size: 0.78rem;
+            color: #94a3b8;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.4rem;
+        }
+
+        .cert-card-v2 p {
+            color: #475569;
+            line-height: 1.5;
+            font-size: 0.88rem;
+        }
+
+        /* Highlight card for flagship certs */
+        .cert-card-v2.featured {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(6, 182, 212, 0.08));
+            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.18);
+        }
+
+        .cert-card-v2.featured::before {
+            opacity: 0.4;
+        }
+
+        .cert-card-v2.featured:hover::before {
+            opacity: 1;
+        }
+
+        /* Platform expertise grid - more compact */
+        .platform-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 1rem;
+        }
+
+        .platform-chip {
+            background: white;
+            padding: 0.8rem 1rem;
+            border-radius: 10px;
+            border: 1.5px solid rgba(99, 102, 241, 0.12);
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .platform-chip:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 18px rgba(99, 102, 241, 0.15);
+        }
+
+        .platform-chip .chip-icon {
+            font-size: 1.6rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .platform-chip h4 {
+            font-size: 0.85rem;
+            color: var(--text-dark);
+            font-weight: 700;
+            margin-bottom: 0.15rem;
+        }
+
+        .platform-chip span {
+            font-size: 0.72rem;
+            color: #94a3b8;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .cert-row {
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            }
+            .platform-grid {
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            }
         }
 
         /* Contact Section */
@@ -1106,7 +1273,6 @@
                 padding: 2rem;
                 transition: left 0.3s ease;
                 gap: 1rem;
-                z-index: 999;
             }
 
             nav ul.active {
@@ -1860,20 +2026,22 @@
 
             <!-- GITHUB / SOFTWARE CARDS -->
 
-            <!-- Card 8: Event Registration Platform -->
-            <div class="portfolio-card" data-category="github" data-id="eventreg">
+            <!-- Card 8: AirPlay Relay Controller -->
+            <div class="portfolio-card" data-category="github" data-id="airplay">
                 <div class="card-image">
-                    <div class="github-card-icon">
-                        <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    <div class="github-card-icon" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);">
+                        <svg viewBox="0 0 24 24" style="width:70px;height:70px;"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
                     </div>
                 </div>
                 <div class="card-body">
-                    <h3>Event Registration and Ticketing Platform</h3>
-                    <p>Custom-built registration and ticketing system for the Berlin Lions Club fair. Handles exhibit registration, attendee ticketing, and event management for 300,000+ annual visitors.</p>
+                    <h3>AirPlay Relay Controller</h3>
+                    <p>IoT project that turns a Raspberry Pi into an AirPlay receiver with automatic GPIO relay control. Detects audio streaming and triggers amplifier power via relay with configurable delay.</p>
                     <div class="card-tech-tags">
-                        <span class="tech-tag">Custom Software</span>
-                        <span class="tech-tag">Event Mgmt</span>
-                        <span class="tech-tag">Ticketing</span>
+                        <span class="tech-tag">Raspberry Pi</span>
+                        <span class="tech-tag">Docker</span>
+                        <span class="tech-tag">Bash</span>
+                        <span class="tech-tag">BalenaOS</span>
+                        <span class="tech-tag">GPIO</span>
                     </div>
                     <div class="card-expand-hint">
                         View details
@@ -1882,56 +2050,200 @@
                 </div>
             </div>
 
-            <!-- Detail: Event Registration -->
-            <div class="portfolio-detail" id="detail-eventreg">
+            <!-- Detail: AirPlay Relay -->
+            <div class="portfolio-detail" id="detail-airplay">
                 <div class="detail-header">
-                    <h3>Event Registration and Ticketing Platform</h3>
+                    <h3>AirPlay Relay Controller</h3>
                     <button class="detail-close" aria-label="Close details">&times;</button>
                 </div>
                 <div class="detail-content">
                     <div class="detail-description">
                         <h4>Project Overview</h4>
-                        <p>Developed and administered custom software systems for event management at the Berlin Lions Club, one of Connecticut's largest annual fairs. The platform handles the full lifecycle of event operations: exhibit registration, vendor management, attendee ticketing, and day-of-event logistics.</p>
+                        <p>Built a Dockerized IoT application that turns a Raspberry Pi into an AirPlay audio receiver with automatic amplifier power management. When an Apple device starts streaming audio, the system detects the AirPlay session and triggers a GPIO relay to power on connected amplifiers. When streaming stops, a configurable delay timer powers the amplifiers off automatically.</p>
 
-                        <h4>Key Features</h4>
-                        <p>The exhibit registration system allows vendors and exhibitors to register online, select booth locations, and submit required documentation. The ticketing platform manages admission sales, pricing tiers, and real-time capacity tracking. Administrative dashboards provide event organizers with live data on registrations, revenue, and attendance metrics. The system integrates with the on-site network infrastructure for reliable point-of-sale and scanning operations.</p>
+                        <h4>Technical Highlights</h4>
+                        <p>The system uses shairport-sync (v4.3.2) for AirPlay reception with ALSA audio output and SoX resampling for high-quality playback. A metadata pipe monitors playback state changes (pbeg/pend events) and a custom Bash script manages GPIO relay switching with debounce logic. The entire stack runs in a Docker container on BalenaOS, supporting Raspberry Pi 3 and 4 hardware. Configuration is fully environment-variable driven for GPIO pin assignment, active state polarity, turn-off delay, AirPlay device name, volume control, and audio backend selection.</p>
 
-                        <h4>Impact</h4>
-                        <p>The platform streamlines operations that were previously handled manually, reducing registration processing time and improving the experience for both exhibitors and attendees across the 300,000+ annual visitor event.</p>
+                        <h4>Problem Solved</h4>
+                        <p>Eliminates the need to manually power amplifiers on and off in a whole-home or distributed audio setup. The relay controller acts as a bridge between consumer AirPlay devices and professional/consumer amplifier hardware.</p>
                     </div>
                     <div class="detail-sidebar">
                         <div class="detail-meta">
                             <div class="detail-meta-row">
-                                <span class="detail-meta-label">Type</span>
-                                <span class="detail-meta-value">Custom Web Application</span>
+                                <span class="detail-meta-label">Platform</span>
+                                <span class="detail-meta-value">Raspberry Pi 3/4</span>
                             </div>
                             <div class="detail-meta-row">
-                                <span class="detail-meta-label">Use Case</span>
-                                <span class="detail-meta-value">Event Operations</span>
+                                <span class="detail-meta-label">OS</span>
+                                <span class="detail-meta-value">BalenaOS / Docker</span>
                             </div>
                             <div class="detail-meta-row">
-                                <span class="detail-meta-label">Scale</span>
-                                <span class="detail-meta-value">300,000+ Visitors/Year</span>
+                                <span class="detail-meta-label">Languages</span>
+                                <span class="detail-meta-value">Bash, Dockerfile</span>
                             </div>
                             <div class="detail-meta-row">
-                                <span class="detail-meta-label">Status</span>
-                                <span class="detail-meta-value">Production</span>
+                                <span class="detail-meta-label">AirPlay</span>
+                                <span class="detail-meta-value">shairport-sync v4.3.2</span>
+                            </div>
+                            <div class="detail-meta-row">
+                                <span class="detail-meta-label">Hardware</span>
+                                <span class="detail-meta-value">GPIO Relay Control</span>
+                            </div>
+                            <div class="detail-meta-row">
+                                <span class="detail-meta-label">Repo</span>
+                                <span class="detail-meta-value"><a href="https://github.com/alexzawadzki/airplay-relay" target="_blank" style="color: var(--primary-color); text-decoration: none;">View on GitHub ↗</a></span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Card 9: Personal Portfolio Website -->
+            <!-- Card 9: Workout Tracker -->
+            <div class="portfolio-card" data-category="github" data-id="workout">
+                <div class="card-image">
+                    <div class="github-card-icon" style="background: linear-gradient(135deg, #1b2838 0%, #2a1f3d 50%, #1a2744 100%);">
+                        <svg viewBox="0 0 24 24" style="width:70px;height:70px;"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h3>Workout Tracker</h3>
+                    <p>Interactive 4-week fitness challenge app with Firebase real-time sync. Tracks exercise completion, streaks, and progress across devices with a visual dashboard and partner workout support.</p>
+                    <div class="card-tech-tags">
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Firebase</span>
+                        <span class="tech-tag">HTML/CSS</span>
+                        <span class="tech-tag">GitHub Pages</span>
+                    </div>
+                    <div class="card-expand-hint">
+                        View details
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detail: Workout Tracker -->
+            <div class="portfolio-detail" id="detail-workout">
+                <div class="detail-header">
+                    <h3>Workout Tracker</h3>
+                    <button class="detail-close" aria-label="Close details">&times;</button>
+                </div>
+                <div class="detail-content">
+                    <div class="detail-description">
+                        <h4>Project Overview</h4>
+                        <p>A progressive 4-week fitness challenge application built with vanilla JavaScript and Firebase Firestore. The app provides a structured workout program with increasing difficulty each week, real-time progress syncing across devices, and a visual statistics dashboard tracking completion percentage, streaks, and daily progress.</p>
+
+                        <h4>Technical Highlights</h4>
+                        <p>Firebase Firestore provides real-time data sync so two users can track the same challenge from different devices. The app falls back to localStorage when offline. The UI features interactive checkboxes for individual exercises, a progress bar, streak counter, and partner workout designations. The 4-week program progresses from foundation circuits through tabata training to a peak performance "12 Days of Fitness" challenge. Deployed via GitHub Actions CI/CD to GitHub Pages.</p>
+                    </div>
+                    <div class="detail-sidebar">
+                        <div class="detail-meta">
+                            <div class="detail-meta-row">
+                                <span class="detail-meta-label">Stack</span>
+                                <span class="detail-meta-value">JS / Firebase / HTML / CSS</span>
+                            </div>
+                            <div class="detail-meta-row">
+                                <span class="detail-meta-label">Database</span>
+                                <span class="detail-meta-value">Firebase Firestore</span>
+                            </div>
+                            <div class="detail-meta-row">
+                                <span class="detail-meta-label">Hosting</span>
+                                <span class="detail-meta-value">GitHub Pages</span>
+                            </div>
+                            <div class="detail-meta-row">
+                                <span class="detail-meta-label">CI/CD</span>
+                                <span class="detail-meta-value">GitHub Actions</span>
+                            </div>
+                            <div class="detail-meta-row">
+                                <span class="detail-meta-label">Live Demo</span>
+                                <span class="detail-meta-value"><a href="https://alexzawadzki.github.io/WorkoutTracker/" target="_blank" style="color: var(--primary-color); text-decoration: none;">View Live ↗</a></span>
+                            </div>
+                            <div class="detail-meta-row">
+                                <span class="detail-meta-label">Repo</span>
+                                <span class="detail-meta-value"><a href="https://github.com/alexzawadzki/WorkoutTracker" target="_blank" style="color: var(--primary-color); text-decoration: none;">View on GitHub ↗</a></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 10: Renata's Cleaning Service -->
+            <div class="portfolio-card" data-category="github" data-id="rcs">
+                <div class="card-image">
+                    <div class="github-card-icon" style="background: linear-gradient(135deg, #2d1b1b 0%, #3d1f2e 50%, #1a2e1a 100%);">
+                        <svg viewBox="0 0 24 24" style="width:70px;height:70px;"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h3>Renata's Cleaning Service</h3>
+                    <p>Professional single-page website built for a residential and commercial cleaning business. Responsive design with custom SVG branding, service showcase, testimonials, and contact integration.</p>
+                    <div class="card-tech-tags">
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">SVG</span>
+                        <span class="tech-tag">GitHub Pages</span>
+                    </div>
+                    <div class="card-expand-hint">
+                        View details
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detail: Renata's Cleaning Service -->
+            <div class="portfolio-detail" id="detail-rcs">
+                <div class="detail-header">
+                    <h3>Renata's Cleaning Service</h3>
+                    <button class="detail-close" aria-label="Close details">&times;</button>
+                </div>
+                <div class="detail-content">
+                    <div class="detail-description">
+                        <h4>Project Overview</h4>
+                        <p>Designed and built a professional website for a cleaning service business with over 25 years of experience. The single-page static site showcases four core service offerings, customer testimonials, and contact information with a clean, accessible design optimized for both desktop and mobile.</p>
+
+                        <h4>Technical Highlights</h4>
+                        <p>The site is a single HTML file (~34 KB) with zero external dependencies beyond Google Fonts. Custom inline SVG logo and graphics keep load times fast. The design uses CSS Grid, Flexbox, and gradient backgrounds with a professional color palette (deep reds, soft greens, cream backgrounds). ARIA labels and semantic HTML provide accessibility. Cormorant Garamond and Montserrat typography gives the site a refined, professional feel. Deployed automatically via GitHub Actions to GitHub Pages.</p>
+                    </div>
+                    <div class="detail-sidebar">
+                        <div class="detail-meta">
+                            <div class="detail-meta-row">
+                                <span class="detail-meta-label">Type</span>
+                                <span class="detail-meta-value">Client Website</span>
+                            </div>
+                            <div class="detail-meta-row">
+                                <span class="detail-meta-label">Stack</span>
+                                <span class="detail-meta-value">HTML / CSS / SVG</span>
+                            </div>
+                            <div class="detail-meta-row">
+                                <span class="detail-meta-label">Fonts</span>
+                                <span class="detail-meta-value">Cormorant Garamond, Montserrat</span>
+                            </div>
+                            <div class="detail-meta-row">
+                                <span class="detail-meta-label">Hosting</span>
+                                <span class="detail-meta-value">GitHub Pages</span>
+                            </div>
+                            <div class="detail-meta-row">
+                                <span class="detail-meta-label">CI/CD</span>
+                                <span class="detail-meta-value">GitHub Actions</span>
+                            </div>
+                            <div class="detail-meta-row">
+                                <span class="detail-meta-label">Repo</span>
+                                <span class="detail-meta-value"><a href="https://github.com/alexzawadzki/rcs" target="_blank" style="color: var(--primary-color); text-decoration: none;">View on GitHub ↗</a></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 11: Personal Portfolio Website -->
             <div class="portfolio-card" data-category="github" data-id="website">
                 <div class="card-image">
                     <div class="github-card-icon">
-                        <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        <svg viewBox="0 0 24 24" style="width:70px;height:70px;"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
                     </div>
                 </div>
                 <div class="card-body">
                     <h3>Personal Portfolio Website</h3>
-                    <p>This website. Built with vanilla HTML, CSS, and JavaScript. Features responsive design, smooth scroll animations, gradient theming, and hosted on GitHub Pages with a custom domain.</p>
+                    <p>This website. Built with vanilla HTML, CSS, and JavaScript. Responsive design, scroll animations, gradient theming, and hosted on GitHub Pages with a custom domain.</p>
                     <div class="card-tech-tags">
                         <span class="tech-tag">HTML5</span>
                         <span class="tech-tag">CSS3</span>
@@ -1988,27 +2300,137 @@
     <!-- Certifications Section -->
     <section id="certifications">
         <h2>Certifications & Expertise</h2>
-        <div class="certifications-grid">
-            <div class="cert-card">
-                <div class="cert-icon">🏆</div>
-                <h3>AVIXA CTS</h3>
-                <p>Certified Technology Specialist - Industry-standard certification for AV professionals</p>
+
+        <div class="cert-categories">
+
+            <!-- Industry & Cloud Certifications -->
+            <div>
+                <div class="cert-category-title">Industry & Cloud Certifications</div>
+                <div class="cert-row">
+                    <div class="cert-card-v2 featured">
+                        <div class="cert-icon">🏆</div>
+                        <h3>AVIXA CTS</h3>
+                        <div class="cert-issuer">AVIXA</div>
+                        <p>Certified Technology Specialist, the gold standard credential for audiovisual professionals worldwide</p>
+                    </div>
+                    <div class="cert-card-v2 featured">
+                        <div class="cert-icon">☁️</div>
+                        <h3>Azure Fundamentals</h3>
+                        <div class="cert-issuer">Microsoft AZ-900</div>
+                        <p>Cloud concepts, Azure services, security, compliance, and identity management fundamentals</p>
+                    </div>
+                    <div class="cert-card-v2 featured">
+                        <div class="cert-icon">📹</div>
+                        <h3>Zoom Integrator</h3>
+                        <div class="cert-issuer">Zoom</div>
+                        <p>Certified to design, deploy, and support Zoom Rooms and Zoom collaboration environments</p>
+                    </div>
+                    <div class="cert-card-v2 featured">
+                        <div class="cert-icon">💬</div>
+                        <h3>Teams Administrator</h3>
+                        <div class="cert-issuer">Microsoft</div>
+                        <p>Administration of Microsoft Teams including Teams Rooms, policies, voice, and meeting infrastructure</p>
+                    </div>
+                </div>
             </div>
-            <div class="cert-card">
-                <div class="cert-icon">⚙️</div>
-                <h3>Crestron Certified</h3>
-                <p>Expert in Crestron control systems and automation solutions</p>
+
+            <!-- Control Systems & UC -->
+            <div>
+                <div class="cert-category-title">Control Systems & Unified Communications</div>
+                <div class="cert-row">
+                    <div class="cert-card-v2">
+                        <div class="cert-icon">⚙️</div>
+                        <h3>Crestron</h3>
+                        <div class="cert-issuer">Programming & Design</div>
+                        <p>Control system programming, NVX AV-over-IP, touch panel design, and XiO Cloud management</p>
+                    </div>
+                    <div class="cert-card-v2">
+                        <div class="cert-icon">🔀</div>
+                        <h3>Extron</h3>
+                        <div class="cert-issuer">Control Programming</div>
+                        <p>Signal distribution, switching, and control system programming for enterprise AV</p>
+                    </div>
+                    <div class="cert-card-v2">
+                        <div class="cert-icon">🔗</div>
+                        <h3>Pexip</h3>
+                        <div class="cert-issuer">UC Interoperability</div>
+                        <p>Video interoperability bridging Zoom, Teams, Cisco, and SIP/H.323 endpoints into a single workflow</p>
+                    </div>
+                </div>
             </div>
-            <div class="cert-card">
-                <div class="cert-icon">🎙️</div>
-                <h3>Shure Certified</h3>
-                <p>Specialized training in Shure audio systems and microphone technology</p>
+
+            <!-- Audio Systems -->
+            <div>
+                <div class="cert-category-title">Audio & DSP Systems</div>
+                <div class="cert-row">
+                    <div class="cert-card-v2">
+                        <div class="cert-icon">🔊</div>
+                        <h3>Biamp Tesira</h3>
+                        <div class="cert-issuer">Biamp</div>
+                        <p>Advanced DSP configuration, AEC, noise reduction, and multi-zone audio routing</p>
+                    </div>
+                    <div class="cert-card-v2">
+                        <div class="cert-icon">🎚️</div>
+                        <h3>QSC Q-SYS</h3>
+                        <div class="cert-issuer">QSC</div>
+                        <p>Networked audio, video, and control platform design for enterprise AV environments</p>
+                    </div>
+                    <div class="cert-card-v2">
+                        <div class="cert-icon">🎙️</div>
+                        <h3>Shure Audio</h3>
+                        <div class="cert-issuer">Shure</div>
+                        <p>MXA ceiling array microphones, Intellimix DSP, and wireless microphone system design</p>
+                    </div>
+                </div>
             </div>
-            <div class="cert-card">
-                <div class="cert-icon">🔊</div>
-                <h3>Biamp Tesira</h3>
-                <p>Advanced audio DSP configuration and system design expertise</p>
+
+            <!-- Additional Platform Expertise -->
+            <div>
+                <div class="cert-category-title">Additional Platform Expertise</div>
+                <div class="platform-grid">
+                    <div class="platform-chip">
+                        <div class="chip-icon">🎭</div>
+                        <h4>ETC Lighting</h4>
+                        <span>DMX / EOS / Sensor</span>
+                    </div>
+                    <div class="platform-chip">
+                        <div class="chip-icon">🌐</div>
+                        <h4>Network Design</h4>
+                        <span>VLANs / QoS / TCP/IP</span>
+                    </div>
+                    <div class="platform-chip">
+                        <div class="chip-icon">📡</div>
+                        <h4>Wireless</h4>
+                        <span>Enterprise Wi-Fi Design</span>
+                    </div>
+                    <div class="platform-chip">
+                        <div class="chip-icon">🔌</div>
+                        <h4>SIP / H.323</h4>
+                        <span>Voice & Video Protocols</span>
+                    </div>
+                    <div class="platform-chip">
+                        <div class="chip-icon">💡</div>
+                        <h4>Fiber Optics</h4>
+                        <span>SM / MM Installation</span>
+                    </div>
+                    <div class="platform-chip">
+                        <div class="chip-icon">🖥️</div>
+                        <h4>Cisco Webex</h4>
+                        <span>Collaboration Platform</span>
+                    </div>
+                    <div class="platform-chip">
+                        <div class="chip-icon">📞</div>
+                        <h4>Webex Contact Center</h4>
+                        <span>Cloud Contact Center</span>
+                    </div>
+                    <div class="platform-chip">
+                        <div class="chip-icon">☎️</div>
+                        <h4>Cisco CUCM</h4>
+                        <span>Unified Call Manager</span>
+                    </div>
+                </div>
             </div>
+
         </div>
     </section>
 
@@ -2027,6 +2449,14 @@
             <div class="service-card">
                 <h3>System Design & Consultation</h3>
                 <p>Expert consultation on AV system architecture, equipment selection, and integration strategies tailored to your specific needs and budget.</p>
+            </div>
+            <div class="service-card">
+                <h3>Network Design & Implementation</h3>
+                <p>Enterprise network infrastructure including managed switching, VLAN segmentation, QoS configuration, wireless design, and fiber optic backbone installation for buildings and campuses.</p>
+            </div>
+            <div class="service-card">
+                <h3>Security Camera Systems</h3>
+                <p>Design and deployment of IP-based surveillance systems including camera placement planning, NVR configuration, network integration, and remote monitoring setup for commercial and event spaces.</p>
             </div>
         </div>
     </section>
