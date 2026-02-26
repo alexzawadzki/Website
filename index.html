@@ -367,21 +367,14 @@
             width: 100%;
         }
 
-        section:nth-child(even) {
+        section:nth-child(even):not(.hero) {
             background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
             color: var(--text-dark);
         }
 
-        section:nth-child(odd) {
+        section:nth-child(odd):not(.hero) {
             background: var(--bg-card);
             color: var(--text-dark);
-        }
-
-        /* Hero must come after nth-child rules to win the specificity tie */
-        section.hero {
-            background: url('background.webp') no-repeat center center/cover;
-            color: var(--text-light);
-            max-width: 100%;
         }
 
         section h2 {
