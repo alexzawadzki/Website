@@ -1,79 +1,72 @@
-# Alex Zawadzki - Personal Website
+# Alex Zawadzki - Personal Portfolio Website
 
-Professional portfolio website for Alex Zawadzki, Certified Technology Specialist (CTS), showcasing expertise in unified collaboration engineering and live event audio.
+Professional portfolio for Alex Zawadzki, AVIXA Certified Technology Specialist (CTS), showcasing expertise in unified collaboration engineering and live event audio.
 
-## 🌐 Live Site
+## Live Site
 
-Visit the live site at: [alexzawadzki.net](https://alexzawadzki.net)
+[alexzawadzki.net](https://alexzawadzki.net)
 
-## 👤 About
+## About
 
-This is the personal website of Alex Zawadzki, featuring:
+Personal portfolio of Alex Zawadzki featuring:
 - Professional profile and bio
 - Industry certifications (AVIXA CTS, Crestron, Shure, Biamp Tesira)
+- Portfolio of AV system designs, network infrastructure, and software projects
 - Service offerings
 - Contact information and social links
 
-## 🛠️ Technologies Used
+## Technologies
 
-- **HTML5** - Semantic markup and structure
-- **CSS3** - Modern styling with custom properties, animations, and responsive design
-- **JavaScript** - Interactive navigation and smooth scrolling
-- **GitHub Pages** - Hosting and deployment
+- **HTML5** — Semantic markup and structure
+- **CSS3** — Custom properties, CSS Grid/Flexbox, animations, responsive design
+- **JavaScript** — Portfolio filtering, mobile nav, scroll animations, Intersection Observer
+- **GitHub Pages** — Hosting and deployment with custom domain
 
-## ✨ Features
+## Features
 
-- **Responsive Design** - Mobile-first approach with breakpoints for tablets and desktop
-- **Fixed Navigation** - Gradient navigation bar with smooth scrolling and mobile hamburger menu
-- **Interactive Animations** - Advanced fade-in effects, 3D transforms, and hover transitions
-- **Social Integration** - Animated social media buttons with gradient backgrounds
-- **Professional Certifications** - Interactive certification cards with gradient borders
-- **Gradient Buttons** - Eye-catching call-to-action buttons with gradient backgrounds
-- **Enhanced Typography** - Gradient text headings for visual impact
-- **Contact Section** - Centered email button with gradient styling
+- **Responsive Design** — Mobile-first with breakpoints at 480px and 768px
+- **Fixed Navigation** — Gradient nav bar with smooth scroll; hamburger menu animates to X on mobile
+- **Portfolio Section** — Filterable project cards (AV Systems, Network Designs, GitHub/Software) with expandable detail panels
+- **Scroll Animations** — Intersection Observer-powered fade-in effects on section entry
+- **Gradient Theme** — Consistent indigo/purple/cyan gradient across buttons, cards, and text headings
+- **Social Integration** — GitHub and LinkedIn links in hero and contact sections
+- **SEO Optimized** — Employer-targeted title, meta description, Open Graph tags, Twitter Card, JSON-LD Person schema with all credentials, canonical URL
+- **Accessible Markup** — `aria-label` on icon links, `alt` text on images, semantic HTML5 elements
 
-## 📱 Responsive Breakpoints
+## Responsive Breakpoints
 
-- Mobile: < 480px
-- Tablet: 481px - 768px
-- Desktop: > 768px
+| Breakpoint | Layout |
+|-----------|--------|
+| > 768px   | Desktop — multi-column grids, horizontal nav |
+| 481–768px | Tablet — single-column grids, hamburger nav |
+| ≤ 480px   | Mobile — compressed typography, smaller icons |
 
-## 🎨 Design Features
+## Portfolio Sections
 
-- **Vibrant Color Scheme** - Modern gradient design with indigo, purple, and cyan accents
-- **Gradient Backgrounds** - Eye-catching gradient buttons and section headings
-- **Animated Cards** - Interactive certification and service cards with gradient borders on hover
-- **CSS Custom Properties** - Consistent theming throughout with CSS variables
-- **Smooth Animations** - Fade-in effects, hover transitions, and scroll indicators
-- **Enhanced Navigation** - Gradient navigation bar on scroll with glowing hover effects
-- **Accessible Contrast** - High contrast buttons and text for optimal readability
-- **Modern Glassmorphism** - Subtle background effects and card styling
-- **3D Transform Effects** - Cards lift and scale on hover for depth perception
+1. **Hero** — Name, title, social links, CTA buttons
+2. **About** — Professional background
+3. **Portfolio** — Filterable project cards with expandable detail panels
+4. **Certifications** — AVIXA CTS, Crestron, Shure, Biamp Tesira
+5. **Services** — Unified Collaboration, Live Event Audio, System Design
+6. **Contact** — Email and LinkedIn
 
-## 📋 Sections
+## Known Issues / Upcoming
 
-1. **Hero** - Introduction with name, title, and social links
-2. **About** - Professional background and expertise
-3. **Certifications** - Industry certifications and specialized training
-4. **Services** - Offered services and specializations
-5. **Contact** - Multiple ways to connect
+- Portfolio card images (`P1378ColeSchotzNYC05.jpg`, `P1183PrattWhitneyAshevilleNC010.jpg`, etc.) are not yet committed to the repository — cards display a placeholder until images are added.
 
-## 🚀 Local Development
+## Local Development
 
-To view this website locally:
+```bash
+git clone https://github.com/alexzawadzki/Website.git
+cd Website
+# Open index.html in any browser — no build step required
+```
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/alexzawadzki/Website.git
-   ```
+## License
 
-2. Open `index.html` in your web browser
+© 2025 Alex Zawadzki. All rights reserved.
 
-## 📄 License
-
-© 2024 Alex Zawadzki. All rights reserved.
-
-## 📧 Contact
+## Contact
 
 - **Email**: alex@alexzawadzki.net
 - **LinkedIn**: [linkedin.com/in/alexzawadzki](https://www.linkedin.com/in/alexzawadzki/)
