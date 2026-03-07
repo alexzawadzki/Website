@@ -505,15 +505,15 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 4px;
+            width: 100%;
             height: 100%;
-            background: linear-gradient(180deg, var(--primary-color), var(--accent-color));
-            transition: width 0.4s ease;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            opacity: 0;
+            transition: opacity 0.4s ease;
         }
 
         .service-card:hover::before {
-            width: 100%;
-            opacity: 0.05;
+            opacity: 0.06;
         }
 
         .service-card:hover {
@@ -1135,6 +1135,39 @@
             opacity: 0.5;
             cursor: default;
             pointer-events: none;
+        }
+
+        /* Video series card icon */
+        .video-card-icon {
+            width: 100%;
+            height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4338ca 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .video-card-icon::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.3), transparent 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .portfolio-card:hover .video-card-icon svg {
+            transform: scale(1.1);
+            filter: drop-shadow(0 0 20px rgba(165, 180, 252, 0.6));
+        }
+
+        .portfolio-card:hover .video-card-icon svg polygon {
+            fill: white;
         }
 
         /* GitHub-specific card styles */
@@ -2305,6 +2338,87 @@
                             <div class="detail-meta-row">
                                 <span class="detail-meta-label">Repo</span>
                                 <span class="detail-meta-value"><a href="https://github.com/alexzawadzki/Website" target="_blank" rel="noopener noreferrer" style="color: var(--primary-color); text-decoration: none;">View on GitHub ↗</a></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card: Technical Marketing Video Series -->
+            <div class="portfolio-card" data-category="av" data-id="techvideos">
+                <div class="card-image">
+                    <span class="card-category-badge badge-av">AV Content</span>
+                    <div class="video-card-icon">
+                        <svg viewBox="0 0 24 24" style="width:80px;height:80px;position:relative;z-index:1;transition:all 0.4s ease;">
+                            <circle cx="12" cy="12" r="10" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+                            <polygon points="10 8 17 12 10 16 10 8" fill="rgba(255,255,255,0.65)"/>
+                        </svg>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h3>Technical AV Marketing Video Series</h3>
+                    <p>Six-part LinkedIn video series covering AV-over-IP, microphones over IP, multi-camera systems, conference room design, and auto/speaker tracking — produced to educate clients and peers.</p>
+                    <div class="card-tech-tags">
+                        <span class="tech-tag">AV over IP</span>
+                        <span class="tech-tag">Video Production</span>
+                        <span class="tech-tag">Camera Systems</span>
+                        <span class="tech-tag">UC/AV</span>
+                    </div>
+                    <div class="card-expand-hint">
+                        View details
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detail: Technical Marketing Video Series -->
+            <div class="portfolio-detail" id="detail-techvideos">
+                <div class="detail-header">
+                    <h3>Technical AV Marketing Video Series</h3>
+                    <button class="detail-close" aria-label="Close details">&times;</button>
+                </div>
+                <div class="detail-content">
+                    <div class="detail-description">
+                        <h4>Project Overview</h4>
+                        <p>Produced and presented a six-part technical video series published on LinkedIn to educate clients, colleagues, and decision-makers on modern AV system concepts. Topics range from signal distribution fundamentals to real-world conference room deployments.</p>
+
+                        <h4>Topics Covered</h4>
+                        <ul style="margin:0 0 1rem 1.25rem;padding:0;line-height:1.8;">
+                            <li>Video over IP — signal distribution and encoding fundamentals</li>
+                            <li>Audio and microphones over IP — networked mic arrays and DSP</li>
+                            <li>Multi-camera systems — switching, PTZ control, and presets</li>
+                            <li>Typical conference room layouts — small, medium, and large spaces</li>
+                            <li>Camera features — auto-framing, speaker tracking, and AI-driven modes</li>
+                            <li>Real-world deployment showcases — Crestron, Zoom Rooms, and unified comms</li>
+                        </ul>
+
+                        <h4>Watch the Series</h4>
+                        <ul style="margin:0 0 1rem 1.25rem;padding:0;line-height:2;">
+                            <li><a href="https://www.linkedin.com/feed/update/urn:li:activity:7417271732723654656/" target="_blank" rel="noopener noreferrer" style="color:var(--primary-color);text-decoration:none;">Episode 1: AV over IP Overview ↗</a></li>
+                            <li><a href="https://www.linkedin.com/posts/alexzawadzki_avoverip-proav-systemsintegration-ugcPost-7406822924361285633-huKS" target="_blank" rel="noopener noreferrer" style="color:var(--primary-color);text-decoration:none;">Episode 2: Audio &amp; Microphones over IP ↗</a></li>
+                            <li><a href="https://www.linkedin.com/posts/alexzawadzki_always-wonderful-seeing-our-work-come-to-ugcPost-7405089077764521984-TgLK" target="_blank" rel="noopener noreferrer" style="color:var(--primary-color);text-decoration:none;">Episode 3: Deployment Showcase ↗</a></li>
+                            <li><a href="https://www.linkedin.com/posts/alexzawadzki_unifiedcommunications-videoconferencing-zoomrooms-ugcPost-7404557821314433024-V6VN" target="_blank" rel="noopener noreferrer" style="color:var(--primary-color);text-decoration:none;">Episode 4: Conference Room Layouts &amp; UC ↗</a></li>
+                            <li><a href="https://www.linkedin.com/posts/alexzawadzki_another-successful-deployment-combining-crestron-ugcPost-7401734308853497856-SU2l" target="_blank" rel="noopener noreferrer" style="color:var(--primary-color);text-decoration:none;">Episode 5: Crestron Multi-Camera System ↗</a></li>
+                            <li><a href="https://www.linkedin.com/posts/alexzawadzki_great-project-with-a-great-team-ugcPost-7399565632486219777-4CUh" target="_blank" rel="noopener noreferrer" style="color:var(--primary-color);text-decoration:none;">Episode 6: Auto-Tracking &amp; Speaker Tracking ↗</a></li>
+                        </ul>
+                    </div>
+                    <div class="detail-sidebar">
+                        <div class="detail-meta">
+                            <div class="detail-meta-row">
+                                <span class="detail-meta-label">Format</span>
+                                <span class="detail-meta-value">LinkedIn Video</span>
+                            </div>
+                            <div class="detail-meta-row">
+                                <span class="detail-meta-label">Episodes</span>
+                                <span class="detail-meta-value">6</span>
+                            </div>
+                            <div class="detail-meta-row">
+                                <span class="detail-meta-label">Topics</span>
+                                <span class="detail-meta-value">AV over IP, UC, Camera Systems</span>
+                            </div>
+                            <div class="detail-meta-row">
+                                <span class="detail-meta-label">Platform</span>
+                                <span class="detail-meta-value"><a href="https://www.linkedin.com/in/alexzawadzki" target="_blank" rel="noopener noreferrer" style="color:var(--primary-color);text-decoration:none;">LinkedIn ↗</a></span>
                             </div>
                         </div>
                     </div>
